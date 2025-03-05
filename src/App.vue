@@ -84,7 +84,7 @@
               <h5>红球频率 / Red Ball Frequency</h5>
               <div class="progress mb-3" style="height: 25px;" v-for="(freq, number) in redBallFrequency" :key="number">
                 <div class="progress-bar bg-danger" 
-                     :style="{ width: `${(freq / maxFrequency) * 100}%` }">
+                     :style="{ width: `${(freq / maxRedFrequency) * 100}%` }">
                   {{ number }}: {{ freq }} 次
                 </div>
               </div>
@@ -92,7 +92,7 @@
               <h5 class="mt-4">蓝球频率 / Blue Ball Frequency</h5>
               <div class="progress mb-3" style="height: 25px;" v-for="(freq, number) in blueBallFrequency" :key="number">
                 <div class="progress-bar bg-primary" 
-                     :style="{ width: `${(freq / maxFrequency) * 100}%` }">
+                     :style="{ width: `${(freq / maxBlueFrequency) * 100}%` }">
                   {{ number }}: {{ freq }} 次
                 </div>
               </div>
@@ -166,11 +166,21 @@ export default {
       );
     },
     
+    maxRedFrequency() {
+      // Find the maximum frequency among the red balls
+      const allRedFrequencies = Object.values(this.redBallFrequency);
+      return allRedFrequencies.length > 0 ? Math.max(...allRedFrequencies) : 1;
+    },
+    
+    maxBlueFrequency() {
+      // Find the maximum frequency among the blue balls
+      const allBlueFrequencies = Object.values(this.blueBallFrequency);
+      return allBlueFrequencies.length > 0 ? Math.max(...allBlueFrequencies) : 1;
+    },
+    
+    // Keep this for backward compatibility if needed elsewhere
     maxFrequency() {
-      // Get the max frequency across all balls for scaling the progress bars
-      const redMax = Object.values(this.redBallFrequency)[0] || 0;
-      const blueMax = Object.values(this.blueBallFrequency)[0] || 0;
-      return Math.max(redMax, blueMax, 1); // At least 1 to avoid division by zero
+      return Math.max(this.maxRedFrequency, this.maxBlueFrequency);
     }
   },
   methods: {
