@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 3100
 
 # 启动 Vite 预览服务
-CMD ["npm", "run", "preview", "--", "--port", "3200", "--host"]
+CMD ["npm", "run", "preview", "--", "--port", "3100", "--host"]
