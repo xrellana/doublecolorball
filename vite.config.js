@@ -7,5 +7,8 @@ export default defineConfig({
   server: {
     port: 3100,
     open: true
+  },
+  preview: {
+    allowedHosts: ['ball.meowoo.net']
   }
 });
