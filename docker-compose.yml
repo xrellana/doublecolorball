@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3200:3200"
+      - "3100:3100"
     restart: always
     # 如果需要存储数据或配置文件，可以添加卷
     # volumes:

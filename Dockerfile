@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # 暴露 3200 端口
-EXPOSE 3200
+EXPOSE 3100
 
 # 启动 Vite 预览服务
 CMD ["npm", "run", "preview", "--", "--port", "3200", "--host"]
