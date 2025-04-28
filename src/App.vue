@@ -42,11 +42,11 @@
               <table class="table history-table" v-if="savedResults.length > 0">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>红球 / Red Balls</th>
-                    <th>蓝球 / Blue Ball</th>
-                    <th>时间 / Time</th>
-                    <th></th>
+                    <th scope="col">#</th>
+                    <th scope="col">红球 / Red Balls</th>
+                    <th scope="col">蓝球 / Blue Ball</th>
+                    <th scope="col">时间 / Time</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,7 @@
                     </td>
                     <td>{{ formatDate(result.timestamp) }}</td>
                     <td>
-                      <button @click="deleteResult(index)" class="btn btn-sm btn-outline-danger">
+                      <button @click="deleteResult(index)" class="btn btn-sm btn-outline-danger" aria-label="Delete result" title="Delete">
                         <i class="bi bi-trash"></i>
                       </button>
                     </td>
