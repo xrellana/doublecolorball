@@ -2,14 +2,14 @@
   <div class="app-container">
     <header class="page-header">
       <h1 class="title-decoration">双色球生成器</h1>
-      <p class="text-muted">Generate random Double Color Ball lottery numbers</p>
+      <p class="text-muted"></p>
     </header>
 
     <main>
       <div class="row">
-        <div class="col-lg-8 mx-auto">
+        <div class="col-lg-12">
           <div class="lottery-card">
-            <h2 class="text-center mb-4">今日幸运号码 / Lucky Numbers</h2>
+            <h2 class="text-center mb-4">今日幸运号码</h2>
             
             <div class="ball-container">
               <!-- Use index as key for simplicity during full replacement -->
@@ -28,10 +28,10 @@
             
             <div class="d-flex justify-content-center gap-3 mt-4">
               <button @click="generateNumbers" class="btn btn-generate">
-                <i class="bi bi-shuffle me-2"></i>生成号码 / Generate
+                <i class="bi bi-shuffle me-2"></i>生成号码
               </button>
               <button @click="saveNumbers" class="btn btn-save" :disabled="!hasGeneratedNumbers">
-                <i class="bi bi-bookmark-plus me-2"></i>保存 / Save
+                <i class="bi bi-bookmark-plus me-2"></i>保存
               </button>
             </div>
           </div>
@@ -41,15 +41,15 @@
       <div class="row mt-5">
         <div class="col-lg-12">
           <div class="stats-container">
-            <h3 class="mb-4">生成历史 / History</h3>
+            <h3 class="mb-4">生成历史</h3>
             <div class="table-responsive">
               <table class="table history-table" v-if="savedResults.length > 0">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">红球 / Red Balls</th>
-                    <th scope="col">蓝球 / Blue Ball</th>
-                    <th scope="col">时间 / Time</th>
+                    <th scope="col">红球</th>
+                    <th scope="col">蓝球</th>
+                    <th scope="col">时间</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
@@ -76,17 +76,17 @@
                   </tr>
                 </tbody>
               </table>
-              <p v-else class="text-muted text-center">No saved results yet</p>
+              <p v-else class="text-muted text-center">尚无保存结果</p>
             </div>
           </div>
         </div>
 
         <div class="col-lg-12 mt-5">
           <div class="stats-container">
-            <h3 class="mb-4">号码统计 / Statistics</h3>
+            <h3 class="mb-4">号码统计</h3>
             <div v-if="savedResults.length > 0">
               <!-- Red Ball Chart -->
-              <h5>红球频率 / Red Ball Frequency</h5>
+              <h5>红球频率</h5>
               <div class="chart-container mb-4">
                 <div v-for="(freq, number) in sortedRedFrequency" :key="`red-${number}`" class="bar-item">
                   <span class="bar-label">{{ freq }}</span>
@@ -96,7 +96,7 @@
               </div>
 
               <!-- Blue Ball Chart -->
-              <h5 class="mt-4">蓝球频率 / Blue Ball Frequency</h5>
+              <h5 class="mt-4">蓝球频率</h5>
               <div class="chart-container">
                  <div v-for="(freq, number) in sortedBlueFrequency" :key="`blue-${number}`" class="bar-item">
                   <span class="bar-label">{{ freq }}</span>
@@ -105,14 +105,14 @@
                 </div>
               </div>
             </div>
-            <p v-else class="text-muted text-center">No statistics available yet</p>
+            <p v-else class="text-muted text-center">尚无统计数据</p>
           </div>
         </div>
       </div>
     </main>
 
     <footer class="footer">
-      <p>© {{ currentYear }} 双色球模拟生成器 - Double Color Ball Generator</p>
+      <p>© {{ currentYear }} 双色球模拟生成器</p>
     </footer>
   </div>
 </template>
@@ -421,8 +421,8 @@ export default {
 
 .page-header {
   text-align: center;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
+  margin-bottom: 20px; /* Reduced margin */
+  padding-bottom: 10px; /* Reduced padding */
   border-bottom: 1px solid #eee;
 }
 
