@@ -52,7 +52,7 @@
                 <tbody>
                   <tr v-for="(result, index) in savedResults" :key="index">
                     <td>{{ index + 1 }}</td>
-                    <td>
+                    <td style="white-space: nowrap;">
                       <div v-for="ball in result.redBalls" :key="ball" 
                            class="lottery-ball red-ball history-ball d-inline-flex me-1">
                         {{ ball }}
@@ -63,7 +63,7 @@
                         {{ result.blueBall }}
                       </div>
                     </td>
-                    <td>{{ formatDate(result.timestamp) }}</td>
+                    <td style="white-space: nowrap;">{{ formatDate(result.timestamp) }}</td>
                     <td>
                       <button @click="deleteResult(index)" class="btn btn-sm btn-outline-danger" aria-label="Delete result" title="Delete">
                         <i class="bi bi-trash"></i>
